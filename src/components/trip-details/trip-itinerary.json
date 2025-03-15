@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_trip_details_trip_itineraries",
+  "info": {
+    "displayName": "Trip Itinerary",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "activities": {
+      "displayName": "ActivityItm",
+      "type": "component",
+      "repeatable": true,
+      "component": "trip-details.activity-itm"
+    }
+  }
+}

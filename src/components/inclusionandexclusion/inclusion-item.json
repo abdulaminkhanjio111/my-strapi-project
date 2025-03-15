@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_inclusionandexclusion_inclusion_items",
+  "info": {
+    "displayName": "InclusionItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

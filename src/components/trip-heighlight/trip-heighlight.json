@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_trip_heighlight_trip_heighlights",
+  "info": {
+    "displayName": "Trip Heighlight"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_trip_details_activity_itms",
+  "info": {
+    "displayName": "ActivityItm"
+  },
+  "options": {},
+  "attributes": {
+    "activity": {
+      "type": "string"
+    }
+  }
+}

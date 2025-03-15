@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "destination": {
+      "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "original_price": {
+      "type": "integer",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "locations": {
+      "type": "json"
+    },
+    "itinerary": {
+      "displayName": "Trip Itinerary",
+      "type": "component",
+      "repeatable": true,
+      "component": "trip-details.trip-itinerary"
+    },
+    "inclusions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inclusionandexclusion.inclusion-item"
+    },
+    "exclusions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "inclusionandexclusion.exclusion-item"
+    },
+    "highlight": {
+      "displayName": "Trip Heighlight",
+      "type": "component",
+      "repeatable": true,
+      "component": "trip-heighlight.trip-heighlight"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

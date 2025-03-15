@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",  // Add this line
+    "moduleResolution": "nodenext",
+    "target": "ES2021",
+    "checkJs": true,
+    "allowJs": true
+  }
+}
