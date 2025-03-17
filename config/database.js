@@ -52,37 +52,50 @@
 //   };
 // };
 
-const path = require('path');
+// const path = require('path');
 
-module.exports = ({ env }) => {
-  const client = env('DATABASE_CLIENT', 'postgres');
+// module.exports = ({ env }) => {
+//   const client = env('DATABASE_CLIENT', 'postgres');
 
-  const connections = {
-    postgres: {
-      connection: {
-        connectionString: env('DATABASE_URL'),
-        ssl: env.bool('DATABASE_SSL', true) // Ensure SSL is enabled for Supabase
-          ? { rejectUnauthorized: false }
-          : false,
-        schema: env('DATABASE_SCHEMA', 'public'),
-        options: {
-          family: 4, // Force IPv4 connections
-        },
-      },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
-    },
-  };
+//   const connections = {
+//     postgres: {
+//       connection: {
+//         connectionString: env('DATABASE_URL'),
+//         ssl: env.bool('DATABASE_SSL', true) // Ensure SSL is enabled for Supabase
+//           ? { rejectUnauthorized: false }
+//           : false,
+//         schema: env('DATABASE_SCHEMA', 'public'),
+//         options: {
+//           family: 4, // Force IPv4 connections
+//         },
+//       },
+//       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+//     },
+//   };
 
-  return {
+//   return {
+//     connection: {
+//       client,
+//       ...connections[client],
+//       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+//     },
+//   };
+// };
+
+
+module.exports = ({ env }) => ({
+  connection: {
+    client: 'postgres', // Always use PostgreSQL
     connection: {
-      client,
-      ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      connectionString: env('DATABASE_URL'), // Use DATABASE_URL directly
+      ssl: env.bool('DATABASE_SSL', true) 
+        ? { rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', false) } 
+        : false, // Ensure SSL is properly configured
     },
-  };
-};
-
-
+    pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+    acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+  },
+});
 
 
 
